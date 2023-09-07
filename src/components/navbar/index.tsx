@@ -9,3 +9,5 @@ export default function Navbar() {
     </HStack>
   );
 }
+
+// 11c85b844f0e412eb7cf38d8f678ef93
