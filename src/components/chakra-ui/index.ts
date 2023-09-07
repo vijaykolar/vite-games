@@ -1,3 +1,3 @@
-import { Grid, GridItem, Show, HStack, Text } from '@chakra-ui/react';
+import { Grid, GridItem, Show, HStack, Text, extendTheme, ColorModeScript, Switch, useColorMode } from '@chakra-ui/react';
 
-export { Grid, GridItem, Show, HStack, Text}
+export { Grid, GridItem, Show, HStack, Text, extendTheme, ColorModeScript, Switch, useColorMode}

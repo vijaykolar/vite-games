@@ -1,10 +1,11 @@
-import { HStack, Text } from "../chakra-ui";
+import { HStack } from "../chakra-ui";
+import ColorModeSwitch from "./color-mode-switch";
 
 export default function Navbar() {
   return (
-    <HStack>
+    <HStack justifyContent="space-between">
       <img src="" alt="logo" />
-      <Text>Navbar</Text>
+      <ColorModeSwitch />
     </HStack>
   );
 }
