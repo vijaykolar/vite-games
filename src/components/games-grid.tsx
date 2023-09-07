@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axiosUrl from "../services/api-client";
-
+import { Text } from "../components/chakra-ui";
 interface Game {
   id: number;
   name: string;
@@ -23,10 +23,13 @@ export default function GamesGrid() {
     // console.log(z);
   }, []);
   return (
-    <ul>
-      {games.map((game) => (
-        <li key={game.id}>{game.name}</li>
-      ))}
-    </ul>
+    <>
+      {error && <Text>{error}</Text>}
+      <ul>
+        {games.map((game) => (
+          <li key={game.id}>{game.name}</li>
+        ))}
+      </ul>
+    </>
   );
 }
