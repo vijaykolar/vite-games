@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from "react";
-import axiosUrl from "../services/api-client";
-import { Text } from "../components/chakra-ui";
-interface Game {
-  id: number;
-  name: string;
-}
-
-interface FetchGamesResponse {
-  count: number;
-  results: Game[];
-}
+import { Text, SimpleGrid } from "../components/chakra-ui";
+import GameCard from "./game-card";
+import { useGames } from "../hooks/useGames";
 
 export default function GamesGrid() {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(function () {
-    axiosUrl
-      .get<FetchGamesResponse>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
-    // console.log(z);
-  }, []);
+  const { games, error } = useGames();
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <SimpleGrid
+        columns={{
+          md: 2,
+          lg: 3,
+          "2xl": 5,
+        }}
+        spacing={{ base: 4, md: 8 }}
+        padding={4}
+      >
         {games.map((game) => (
-          <li key={game.id}>{game.name}</li>
+          <GameCard key={game.background_image} game={game} />
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 }
