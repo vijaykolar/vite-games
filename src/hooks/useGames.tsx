@@ -23,14 +23,22 @@ interface FetchGamesResponse {
 export function useGames() {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(function () {
+    setLoading(true);
     axiosUrl
       .get<FetchGamesResponse>("/games")
-      .then((res) => setGames(res.data.results))
-      .catch((err) => setError(err.message));
+      .then((res) => {
+        setGames(res.data.results);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setError(err.message);
+        setLoading(false);
+      });
     // console.log(z);
   }, []);
 
-  return { games, error };
+  return { games, loading, error };
 }
