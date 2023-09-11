@@ -2,6 +2,7 @@ import { Text, SimpleGrid, Grid } from "../components/chakra-ui";
 import GameCard from "./game-card";
 import { useGames } from "../hooks/useGames";
 import GameCardskeleton from "./game-card-skeleton";
+import GameCardContainer from "./game-card-container";
 
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
@@ -20,7 +21,9 @@ export default function GamesGrid() {
         padding={4}
       >
         {numberOfSkeleton.map((s) => (
-          <GameCardskeleton key={s} />
+          <GameCardContainer key={s}>
+            <GameCardskeleton />
+          </GameCardContainer>
         ))}
       </Grid>
     );
@@ -38,7 +41,9 @@ export default function GamesGrid() {
         padding={4}
       >
         {games.map((game) => (
-          <GameCard key={game.background_image} game={game} />
+          <GameCardContainer key={game.background_image}>
+            <GameCard game={game} />
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>

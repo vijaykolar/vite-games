@@ -11,7 +11,7 @@ interface GamesCardProps {
 
 export default function GameCard({ game }: GamesCardProps) {
   return (
-    <Card borderRadius={10} overflow="hidden">
+    <Card>
       <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <CardBody>
         <Heading size="lg">{game.name}</Heading>
