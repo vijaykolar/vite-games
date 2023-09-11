@@ -1,4 +1,5 @@
 import { Game } from "../hooks/useGames";
+import getCroppedImageUrl from "../utils/image-url";
 
 import { Card, CardBody, HStack, Heading, Image } from "./chakra-ui";
 import CriticScore from "./critic-score";
@@ -11,7 +12,7 @@ interface GamesCardProps {
 export default function GameCard({ game }: GamesCardProps) {
   return (
     <Card borderRadius={10} overflow="hidden">
-      <Image src={game.background_image} alt={game.name} />
+      <Image src={getCroppedImageUrl(game.background_image)} alt={game.name} />
       <CardBody>
         <Heading size="lg">{game.name}</Heading>
         <HStack justifyContent="space-between">
