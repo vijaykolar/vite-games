@@ -1,4 +1,4 @@
-import { Platform } from "./games-grid";
+import { Platform } from "../hooks/useGames";
 import { HStack, Icon } from "../components/chakra-ui";
 
 import {
