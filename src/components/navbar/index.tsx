@@ -1,12 +1,18 @@
-import { HStack } from "../chakra-ui";
+import { Box, HStack, Image } from "../chakra-ui";
 import ColorModeSwitch from "./color-mode-switch";
 
 export default function Navbar() {
   return (
-    <HStack justifyContent="space-between">
-      <img src="" alt="logo" />
-      <ColorModeSwitch />
-    </HStack>
+    <Box padding={4} marginBottom={4}>
+      <HStack justifyContent="space-between">
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+          alt="logo"
+          boxSize={12}
+        />
+        <ColorModeSwitch />
+      </HStack>
+    </Box>
   );
 }
 
