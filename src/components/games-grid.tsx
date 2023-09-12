@@ -1,13 +1,15 @@
 import { Text, SimpleGrid, Grid } from "../components/chakra-ui";
+
 import GameCard from "./game-card";
-import { useGames } from "../hooks/useGames";
 import GameCardskeleton from "./game-card-skeleton";
 import GameCardContainer from "./game-card-container";
+
+import { useGames } from "../hooks/useGames";
 
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
 export default function GamesGrid() {
-  const { loading, games, error } = useGames();
+  const { loading, data: games, error } = useGames();
 
   if (loading)
     return (

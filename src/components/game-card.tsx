@@ -1,4 +1,4 @@
-import { Game } from "../hooks/useGames";
+import { Game } from "./games-grid";
 import getCroppedImageUrl from "../utils/image-url";
 
 import { Card, CardBody, HStack, Heading, Image } from "./chakra-ui";

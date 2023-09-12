@@ -1,10 +1,13 @@
-import { useGenres } from "../hooks/useGenre";
+import { useGenres } from "../hooks/useGenres";
 import getCroppedImageUrl from "../utils/image-url";
-import { Image, HStack, Text, List, ListItem } from "./chakra-ui";
+import { Image, HStack, Text, List, ListItem, Spinner } from "./chakra-ui";
 
 function GenreList() {
-  const { genres } = useGenres();
-  // console.log(genres);
+  const { data: genres, loading, error } = useGenres();
+
+  if (loading) return <Spinner />;
+
+  if (error) return;
 
   return (
     <List>
@@ -14,6 +17,7 @@ function GenreList() {
             <Image
               boxSize={8}
               src={getCroppedImageUrl(genre.image_background)}
+              alt={genre.name}
             />
             <Text fontSize={14}> {genre.name}</Text>
           </HStack>
