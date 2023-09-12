@@ -11,8 +11,7 @@ import GameCard from "./game-card";
 import GameCardskeleton from "./game-card-skeleton";
 import GameCardContainer from "./game-card-container";
 
-import { Platform, useGames } from "../hooks/useGames";
-import { Genre } from "../hooks/useGenres";
+import { useGames } from "../hooks/useGames";
 import { HiOutlineFaceFrown } from "react-icons/hi2";
 import { GameQuery } from "../App";
 
