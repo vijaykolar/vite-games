@@ -5,11 +5,16 @@ import GameCardskeleton from "./game-card-skeleton";
 import GameCardContainer from "./game-card-container";
 
 import { useGames } from "../hooks/useGames";
+import { Genre } from "../hooks/useGenres";
 
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
-export default function GamesGrid() {
-  const { loading, data: games, error } = useGames();
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+export default function GamesGrid({ selectedGenre }: Props) {
+  const { loading, data: games, error } = useGames(selectedGenre);
 
   if (loading)
     return (
