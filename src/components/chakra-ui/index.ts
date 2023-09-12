@@ -28,6 +28,9 @@ import {
   SimpleGrid,
   Center,
   VStack,
+  Input,
+  InputGroup,
+  InputLeftElement,
 } from "@chakra-ui/react";
 
 export {
@@ -60,4 +63,7 @@ export {
   SimpleGrid,
   Center,
   VStack,
+  Input,
+  InputGroup,
+  InputLeftElement,
 };

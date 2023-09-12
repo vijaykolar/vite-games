@@ -1,4 +1,5 @@
 import { Box, HStack, Image } from "../chakra-ui";
+import SearchInput from "../search-input";
 import ColorModeSwitch from "./color-mode-switch";
 
 export default function Navbar() {
@@ -10,6 +11,7 @@ export default function Navbar() {
           alt="logo"
           boxSize={12}
         />
+        <SearchInput />
         <ColorModeSwitch />
       </HStack>
     </Box>
