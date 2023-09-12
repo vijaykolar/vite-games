@@ -14,20 +14,16 @@ import GameCardContainer from "./game-card-container";
 import { Platform, useGames } from "../hooks/useGames";
 import { Genre } from "../hooks/useGenres";
 import { HiOutlineFaceFrown } from "react-icons/hi2";
+import { GameQuery } from "../App";
 
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
 interface Props {
-  selectedGenre: Genre | null;
-  selectedPlatform: Platform | null;
+  gameQuery: GameQuery;
 }
 
-export default function GamesGrid({ selectedGenre, selectedPlatform }: Props) {
-  const {
-    loading,
-    data: games,
-    error,
-  } = useGames(selectedGenre, selectedPlatform);
+export default function GamesGrid({ gameQuery }: Props) {
+  const { loading, data: games, error } = useGames(gameQuery);
 
   if (loading)
     return (
