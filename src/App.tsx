@@ -9,7 +9,7 @@ import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/sort-selector";
 import GameHeading from "./components/game-heading.tsx";
 
-import { Analytics } from "@vercel/analytics/react";
+import { inject } from "@vercel/analytics";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -19,6 +19,7 @@ export interface GameQuery {
 }
 
 function App() {
+  inject();
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
 
   return (
@@ -71,7 +72,6 @@ function App() {
           <GamesGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
-      <Analytics />
     </>
   );
 }
