@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Grid, GridItem, HStack, Show } from "./components/chakra-ui";
+import { Grid, GridItem, HStack, Show, Box } from "./components/chakra-ui";
 import GamesGrid from "./components/games-grid";
 import GenreList from "./components/genre-list";
 import Navbar from "./components/navbar";
@@ -8,7 +8,8 @@ import PlatformSelector from "./components/platform-selector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/sort-selector";
 import GameHeading from "./components/game-heading.tsx";
-import { Box } from "@chakra-ui/react";
+
+import { Analytics } from "@vercel/analytics/react";
 
 export interface GameQuery {
   genre: Genre | null;
@@ -70,6 +71,7 @@ function App() {
           <GamesGrid gameQuery={gameQuery} />
         </GridItem>
       </Grid>
+      <Analytics />
     </>
   );
 }
