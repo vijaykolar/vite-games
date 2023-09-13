@@ -2,7 +2,10 @@ import { Box, HStack, Image } from "../chakra-ui";
 import SearchInput from "../search-input";
 import ColorModeSwitch from "./color-mode-switch";
 
-export default function Navbar() {
+interface Props {
+  onSearch: (searchText: string) => void;
+}
+export default function Navbar({ onSearch }: Props) {
   return (
     <Box padding={4} marginBottom={4}>
       <HStack justifyContent="space-between">
@@ -11,7 +14,7 @@ export default function Navbar() {
           alt="logo"
           boxSize={12}
         />
-        <SearchInput />
+        <SearchInput onSearch={onSearch} />
         <ColorModeSwitch />
       </HStack>
     </Box>
