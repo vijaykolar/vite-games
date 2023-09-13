@@ -3,7 +3,7 @@ import { BsSearch } from "react-icons/bs";
 
 function SearchInput() {
   return (
-    <Box maxWidth="lg" minWidth="lg">
+    <Box maxWidth="lg" minWidth={{base: "auto", md: "lg"}}>
       <InputGroup>
         <InputLeftElement pointerEvents="none">
           <BsSearch color="gray.300" />
