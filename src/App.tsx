@@ -6,7 +6,7 @@ import Navbar from "./components/navbar";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/platform-selector";
 import { Platform } from "./hooks/useGames";
-import Sortelector from "./components/sort-selector";
+import SortSelector from "./components/sort-selector";
 import GameHeading from "./components/game-heading.tsx";
 import { Box } from "@chakra-ui/react";
 
@@ -58,7 +58,7 @@ function App() {
                   setGameQuery({ ...gameQuery, platform })
                 }
               />
-              <Sortelector
+              <SortSelector
                 sortOrder={gameQuery.sortOrder}
                 onSelectSortOrder={(sortOrder) =>
                   setGameQuery({ ...gameQuery, sortOrder })

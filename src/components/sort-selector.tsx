@@ -33,9 +33,9 @@ interface Props {
   sortOrder: string;
 }
 
-function Sortelector({ onSelectSortOrder, sortOrder }: Props) {
+function SortSelector({ onSelectSortOrder, sortOrder }: Props) {
   const currentSortOrder = sortOrders.find(
-    (order) => order.value === sortOrder
+    (order) => order.value === sortOrder,
   );
   return (
     <Menu>
@@ -57,4 +57,4 @@ function Sortelector({ onSelectSortOrder, sortOrder }: Props) {
   );
 }
 
-export default Sortelector;
+export default SortSelector;
