@@ -1,7 +1,7 @@
-import { Platform } from "../hooks/useGames";
 import { usePlatforms } from "../hooks/usePlatforms";
 import { Menu, MenuButton, MenuItem, MenuList, Button } from "./chakra-ui";
 import { FaChevronDown } from "react-icons/fa";
+import { Platform } from "../types.ts";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;

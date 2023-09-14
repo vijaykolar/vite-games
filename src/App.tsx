@@ -3,20 +3,13 @@ import { Grid, GridItem, HStack, Show, Box } from "./components/chakra-ui";
 import GamesGrid from "./components/games-grid";
 import GenreList from "./components/genre-list";
 import Navbar from "./components/navbar";
-import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/platform-selector";
-import { Platform } from "./hooks/useGames";
+
 import SortSelector from "./components/sort-selector";
 import GameHeading from "./components/game-heading.tsx";
 
 import { inject } from "@vercel/analytics";
-
-export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
-  sortOrder: string;
-  searchText: string;
-}
+import { GameQuery } from "./types.ts";
 
 function App() {
   inject();

@@ -1,4 +1,4 @@
-import { Genre, useGenres } from "../hooks/useGenres";
+import { useGenres } from "../hooks/useGenres";
 import getCroppedImageUrl from "../utils/image-url";
 import {
   Image,
@@ -9,6 +9,8 @@ import {
   Spinner,
   Heading,
 } from "./chakra-ui";
+
+import { Genre } from "../types.ts";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;

@@ -1,6 +1,6 @@
 import { Card, CardBody, Skeleton, SkeletonText } from "./chakra-ui";
 
-export default function GameCardskeleton() {
+function GameCardSkeleton() {
   return (
     <Card>
       <Skeleton height={200} />
@@ -10,3 +10,4 @@ export default function GameCardskeleton() {
     </Card>
   );
 }
+export default GameCardSkeleton;

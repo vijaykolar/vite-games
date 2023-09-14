@@ -1,3 +1,4 @@
+import { HiOutlineFaceFrown } from "react-icons/hi2";
 import {
   Text,
   SimpleGrid,
@@ -6,15 +7,14 @@ import {
   Center,
   VStack,
 } from "../components/chakra-ui";
-
 import GameCard from "./game-card";
-import GameCardskeleton from "./game-card-skeleton";
 import GameCardContainer from "./game-card-container";
+import GameCardSkeleton from "./game-card-skeleton";
 
 import { useGames } from "../hooks/useGames";
-import { HiOutlineFaceFrown } from "react-icons/hi2";
-import { GameQuery } from "../App";
+import { GameQuery } from "../types.ts";
 
+// Generate number of skeletons
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
 interface Props {
@@ -22,9 +22,9 @@ interface Props {
 }
 
 export default function GamesGrid({ gameQuery }: Props) {
-  const { loading, data: games, error } = useGames(gameQuery);
+  const { data: games, isLoading, error } = useGames(gameQuery);
 
-  if (loading)
+  if (isLoading)
     return (
       <Grid
         gridTemplateColumns={{
@@ -37,13 +37,13 @@ export default function GamesGrid({ gameQuery }: Props) {
       >
         {numberOfSkeleton.map((s) => (
           <GameCardContainer key={s}>
-            <GameCardskeleton />
+            <GameCardSkeleton />
           </GameCardContainer>
         ))}
       </Grid>
     );
 
-  if (games.length === 0)
+  if (games?.results.length === 0)
     return (
       <Center>
         <VStack>
@@ -55,7 +55,7 @@ export default function GamesGrid({ gameQuery }: Props) {
 
   return (
     <>
-      {error && <Text>{error}</Text>}
+      {error && <Text>{error.message}</Text>}
       <SimpleGrid
         columns={{
           md: 2,
@@ -65,7 +65,7 @@ export default function GamesGrid({ gameQuery }: Props) {
         spacing={{ base: 4, md: 8 }}
         padding={4}
       >
-        {games.map((game) => (
+        {games?.results.map((game) => (
           <GameCardContainer key={game.background_image}>
             <GameCard game={game} />
           </GameCardContainer>

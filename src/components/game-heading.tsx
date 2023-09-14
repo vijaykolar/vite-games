@@ -1,5 +1,5 @@
 import { Heading, Box } from "./chakra-ui";
-import { GameQuery } from "../App.tsx";
+import { GameQuery } from "../types.ts";
 
 interface Props {
   gameQuery: GameQuery;
