@@ -24,7 +24,7 @@ export default function GameCard({ game }: GamesCardProps) {
           />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading size="lg">{game.name}</Heading>
+        <Heading size="md">{game.name}</Heading>
       </CardBody>
     </Card>
   );
