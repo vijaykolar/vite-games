@@ -4,10 +4,10 @@ export interface FetchResponse<T> {
   next: string | null;
 }
 
-export interface Platform {
+export interface Genre {
   id: number;
   name: string;
-  slug: string;
+  image_background: string;
 }
 
 export interface Game {
@@ -18,15 +18,15 @@ export interface Game {
   metacritic: number;
 }
 
-export interface Genre {
+export interface Platform {
   id: number;
   name: string;
-  image_background: string;
+  slug: string;
 }
 
 export interface GameQuery {
-  genre: Genre | null;
-  platform: Platform | null;
+  genreId?: number;
+  platformId?: number;
   sortOrder: string;
   searchText: string;
 }

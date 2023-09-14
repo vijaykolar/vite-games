@@ -5,17 +5,21 @@ import { Platform } from "../types.ts";
 
 interface Props {
   onSelectPlatform: (platform: Platform) => void;
-  selectedPlatform: Platform | null;
+  selectedPlatformId?: number;
 }
 
-function PlatformSelector({ onSelectPlatform, selectedPlatform }: Props) {
+function PlatformSelector({ onSelectPlatform, selectedPlatformId }: Props) {
   const { data: platforms, isError } = usePlatforms();
+  const platform = platforms?.results.find(
+    (platform) => platform.id === selectedPlatformId,
+  );
+
   if (isError) return null;
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<FaChevronDown />}>
-        {selectedPlatform?.name || "Platforms"}
+        {platform?.name || "Platforms"}
       </MenuButton>
       <MenuList>
         {platforms?.results.map((platform) => (

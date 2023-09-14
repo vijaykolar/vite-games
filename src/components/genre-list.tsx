@@ -14,10 +14,10 @@ import { Genre } from "../types.ts";
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-function GenreList({ onSelectGenre, selectedGenre }: Props) {
+function GenreList({ onSelectGenre, selectedGenreId }: Props) {
   const { data: genres, isLoading, isError } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -43,10 +43,8 @@ function GenreList({ onSelectGenre, selectedGenre }: Props) {
                 fontSize={16}
                 onClick={() => onSelectGenre(genre)}
                 variant="link"
-                textDecoration={
-                  selectedGenre?.id === genre.id ? "underline" : ""
-                }
-                fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
+                textDecoration={selectedGenreId === genre.id ? "underline" : ""}
+                fontWeight={selectedGenreId === genre.id ? "bold" : "normal"}
                 // color={selectedGenre?.id === genre.id ? "gray.900" : "gray.500"}
               >
                 {genre.name}
