@@ -1,23 +1,17 @@
+import { Fragment } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
 import { Text, SimpleGrid, Grid, Box, Spinner } from "../components/chakra-ui";
 import GameCard from "./game-card";
 import GameCardContainer from "./game-card-container";
 import GameCardSkeleton from "./game-card-skeleton";
 
 import { useGames } from "../hooks/useGames";
-import { GameQuery } from "../types.ts";
-import { Fragment } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 
 // Generate number of skeletons
 const numberOfSkeleton = Array.from({ length: 10 }, (_, i) => i + 1);
 
-interface Props {
-  gameQuery: GameQuery;
-}
-
-export default function GamesGrid({ gameQuery }: Props) {
-  const { data, isLoading, error, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
+function GamesGrid() {
+  const { data, isLoading, error, fetchNextPage, hasNextPage } = useGames();
 
   if (isLoading)
     return (
@@ -79,3 +73,5 @@ export default function GamesGrid({ gameQuery }: Props) {
     </>
   );
 }
+
+export default GamesGrid;

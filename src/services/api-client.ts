@@ -8,7 +8,7 @@ const axiosInstance = axios.create({
   },
 });
 
-class APIClient<T> {
+export class APIClient<T> {
   endpoint: string;
   constructor(endpoint: string) {
     this.endpoint = endpoint;
@@ -22,4 +22,3 @@ class APIClient<T> {
     return res.data;
   };
 }
-export default APIClient;

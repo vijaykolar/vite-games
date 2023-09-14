@@ -1,4 +1,4 @@
-import getCroppedImageUrl from "../utils/image-url";
+import { getCroppedImageUrl } from "../utils/image-url";
 import { Card, CardBody, HStack, Heading, Image } from "./chakra-ui";
 import CriticScore from "./critic-score";
 import PlatformIconList from "./platform-icon-list";
@@ -8,7 +8,7 @@ interface GamesCardProps {
   game: Game;
 }
 
-export default function GameCard({ game }: GamesCardProps) {
+function GameCard({ game }: GamesCardProps) {
   return (
     <Card>
       <Image
@@ -29,3 +29,4 @@ export default function GameCard({ game }: GamesCardProps) {
     </Card>
   );
 }
+export default GameCard;

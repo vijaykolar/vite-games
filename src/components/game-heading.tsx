@@ -1,14 +1,13 @@
 import { Heading, Box } from "./chakra-ui";
-import { GameQuery } from "../types.ts";
 import { usePlatform } from "../hooks/usePlatform.tsx";
 import { useGenre } from "../hooks/useGenre.tsx";
+import { useGameQueryStore } from "../store.ts";
 
-interface Props {
-  gameQuery: GameQuery;
-}
-function GameHeading({ gameQuery }: Props) {
-  const { genre } = useGenre(gameQuery.genreId);
-  const { platform } = usePlatform(gameQuery?.platformId);
+function GameHeading() {
+  const genreId = useGameQueryStore((state) => state.gameQuery.genreId);
+  const platformId = useGameQueryStore((state) => state.gameQuery.platformId);
+  const { genre } = useGenre(genreId);
+  const { platform } = usePlatform(platformId);
 
   return (
     <Box marginBottom={4}>
