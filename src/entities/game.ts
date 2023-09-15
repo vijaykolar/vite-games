@@ -11,4 +11,5 @@ export interface Game {
   slug: string;
   genres: Genre[];
   publishers: Publisher[];
+  description_raw: string;
 }

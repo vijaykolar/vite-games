@@ -2,14 +2,19 @@ import { Box, Input, InputGroup, InputLeftElement } from "./chakra-ui";
 import { BsSearch } from "react-icons/bs";
 import { FormEvent, useRef } from "react";
 import { useGameQueryStore } from "../store.ts";
+import { useNavigate } from "react-router-dom";
 
 function SearchInput() {
+  const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
   const setSearchText = useGameQueryStore((state) => state.setSearchText);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    if (inputRef.current) setSearchText(inputRef?.current?.value);
+    if (inputRef.current) {
+      setSearchText(inputRef?.current?.value);
+      navigate("/");
+    }
   }
   return (
     <Box maxWidth="lg" minWidth={{ base: "auto", md: "lg" }}>

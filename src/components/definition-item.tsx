@@ -12,7 +12,9 @@ function DefinitionItem({ term, children }: Props) {
       <Heading as="dt" fontSize="lg" color="gray.600">
         {term}
       </Heading>
-      <dd>{children}</dd>
+      <Box as="dd" marginTop={2}>
+        {children}
+      </Box>
     </Box>
   );
 }

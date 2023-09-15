@@ -21,6 +21,7 @@ function GameTrailer({ gameId, background_image }: Props) {
         poster={data?.results[0]?.preview}
         controls
         width="100%"
+        autoPlay
       />
     </Box>
   ) : (
