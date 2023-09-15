@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { FetchResponse } from "../types.ts";
+
+import { FetchResponse } from "../entities/fetchResponse.ts";
 
 const axiosInstance = axios.create({
   baseURL: "https://api.rawg.io/api",
@@ -19,6 +20,11 @@ export class APIClient<T> {
       this.endpoint,
       config,
     );
+    return res.data;
+  };
+
+  get = async (id: string | number) => {
+    const res = await axiosInstance.get<T>(`${this.endpoint}/${id}`);
     return res.data;
   };
 }

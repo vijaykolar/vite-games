@@ -1,5 +1,5 @@
-import { GameQuery } from "./types.ts";
 import { create } from "zustand";
+import { GameQuery } from "./entities/gameQuery.ts";
 
 interface GameQueryStore {
   gameQuery: GameQuery;

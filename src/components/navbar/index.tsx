@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Box, HStack, Image } from "../chakra-ui";
 import SearchInput from "../search-input";
 import ColorModeSwitch from "./color-mode-switch";
@@ -6,11 +7,13 @@ function Navbar() {
   return (
     <Box padding={4} marginBottom={4}>
       <HStack justifyContent="space-between">
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
-          alt="logo"
-          boxSize={12}
-        />
+        <Link to="/">
+          <Image
+            src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Vitejs-logo.svg"
+            alt="logo"
+            boxSize={12}
+          />
+        </Link>
         <SearchInput />
         <ColorModeSwitch />
       </HStack>
