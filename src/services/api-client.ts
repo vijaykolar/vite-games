@@ -20,6 +20,7 @@ export class APIClient<T> {
       this.endpoint,
       config,
     );
+
     return res.data;
   };
 
